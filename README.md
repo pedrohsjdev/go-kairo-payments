@@ -30,6 +30,7 @@ Executa o linter, os testes unitários e compila o binário de uma só vez:
 make
 ```
 
+API em construção... Ainda não existe servidor HTTP
 ### 3. Executar a API
 Compila o projeto e inicia o servidor HTTP imediatamente:
 ```bash
