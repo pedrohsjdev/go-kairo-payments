@@ -3,7 +3,8 @@ GOCMD = go
 
 # Variáveis para organizar o projeto
 BINARY_NAME=go-kairo-payments
-CMD_PATH=./cmd/main.go
+TARGET=bin/$(BINARY_NAME)
+CMD_PATH=./cmd/api/main.go
 
 .PHONY: all build run test lint clean help
 
@@ -13,13 +14,13 @@ all: lint test build
 ## build: Compila o binário do projeto
 build:
 	@echo "Compilando o binário..."
-	$(GOCMD) build -o $(BINARY_NAME) $(CMD_PATH)
+	$(GOCMD) build -o $(TARGET) $(CMD_PATH)
 
 ## run: Compila e executa a aplicação
 run: build
-	@chmod +x ./$(BINARY_NAME)
+	@chmod +x ./$(TARGET)
 	@echo "Executando a aplicação..."
-	./$(BINARY_NAME)
+	./$(TARGET)
 
 ## test: Executa todos os testes unitários
 test:
@@ -34,10 +35,10 @@ lint:
 ## clean: Remove o binário gerado e limpa o cache de teste
 clean:
 	@echo "Limpando arquivos gerados..."
-	rm -f $(BINARY_NAME)
+	rm -f bin
 	$(GOCMD) clean -testcache
 
 ## help: Mostra os comandos disponíveis e suas descrições
 help:
 	@echo "Comandos disponíveis:"
-	@sed -n 's/^##//p' $(MAKEFILE) | column -t -s ':' |  sed -e 's/^/ /'
+	@sed -n 's/^##//p' $(MAKEFILE_LIST) | column -t -s ':' |  sed -e 's/^/ /'
