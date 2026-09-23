@@ -35,7 +35,7 @@ lint:
 ## clean: Remove o binário gerado e limpa o cache de teste
 clean:
 	@echo "Limpando arquivos gerados..."
-	rm -f bin
+	rm -rf bin
 	$(GOCMD) clean -testcache
 
 ## help: Mostra os comandos disponíveis e suas descrições
