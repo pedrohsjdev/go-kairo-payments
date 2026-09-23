@@ -20,7 +20,7 @@ O projeto utiliza um `Makefile` para abstrair e simplificar os comandos de termi
 
 ### 1. Clonar o repositório
 ```bash
-git clone https://github.com
+git clone https://github.com/pedrohsjdev/go-kairo-payments.git
 cd go-kairo-payments
 ```
 
