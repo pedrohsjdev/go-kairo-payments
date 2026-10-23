@@ -81,31 +81,34 @@ Se a explicação for rasa, eu faço pergunta de acompanhamento. Se você não s
 
 ---
 
-## Sprint 0 — "Fundação" · 21/09 → 29/09 · capacidade 20–25h  🟢 EM ANDAMENTO
+## Sprint 0 — "Fundação" · 3ª repactuação · 26/10 → 30/10  🟢 EM ANDAMENTO
 
-> **Status agora vive no GitHub.** Este arquivo guarda acordos de trabalho e a narrativa do roadmap; quem manda em estado de ticket é a issue.
-> Milestone: [M0 — Fundação](https://github.com/pedrohsjdev/go-kairo-payments/milestone/1) · due 29/09
+> **Histórico honesto:** plano 1 (21–25/09) não caberia na capacidade real. Plano 2 (até 29/09) perdido por imprevisto pessoal e de trabalho. Este é o plano 3.
+> Não comprimi escopo para recuperar atraso — comprimir é como se chega ao plano 4. Em vez disso, `#4` saiu da M0 e todas as milestones andaram ~5 semanas.
+> Milestone: [M0 — Fundação](https://github.com/pedrohsjdev/go-kairo-payments/milestones) · due 30/10
 
-| Issue | Ticket | Prazo | Decisões suas |
+| Issue | Ticket | Prazo | Nota |
 |---|---|---|---|
-| [#1](https://github.com/pedrohsjdev/go-kairo-payments/issues/1) | Bootstrap do repositório | 21/09 | ✅ entregue · 🟡 4 correções pendentes |
-| [#2](https://github.com/pedrohsjdev/go-kairo-payments/issues/2) | Servidor HTTP + config + shutdown | qua 23/09 | estrutura, payload do healthz, env vars, timeout |
-| [#3](https://github.com/pedrohsjdev/go-kairo-payments/issues/3) | Logging estruturado + request ID | qui 24/09 | origem do ID, chave de context, **o que não logar** |
-| [#4](https://github.com/pedrohsjdev/go-kairo-payments/issues/4) | Postgres + migrations | sex 25/09 | ferramenta, driver, números do pool |
-| [#5](https://github.com/pedrohsjdev/go-kairo-payments/issues/5) | Testes + CI | seg 28/09 | linters, o que testar, matriz |
-| [#6](https://github.com/pedrohsjdev/go-kairo-payments/issues/6) | ADR-0001: fronteiras do monolito | ter 29/09 | **todas** |
-| [#7](https://github.com/pedrohsjdev/go-kairo-payments/issues/7) | Estudo: Tour of Go + LGwT | ter 29/09 | — |
+| [#2](https://github.com/pedrohsjdev/go-kairo-payments/issues/2) | Servidor HTTP + config + shutdown | **seg 26/10** | ~70% feito na branch; compromisso do dev |
+| [#5](https://github.com/pedrohsjdev/go-kairo-payments/issues/5) | Testes + CI | **qua 28/10** | antecipado de propósito — ver abaixo |
+| [#3](https://github.com/pedrohsjdev/go-kairo-payments/issues/3) | Logging estruturado + request ID | **qui 29/10** | |
+| [#6](https://github.com/pedrohsjdev/go-kairo-payments/issues/6) | ADR-0001: fronteiras do monolito | **sex 30/10** | maior peso em Architecture |
+| [#7](https://github.com/pedrohsjdev/go-kairo-payments/issues/7) | Estudo | sex 30/10 | Tour of Go ✅ · falta `docs/go-notes.md` |
+| [#4](https://github.com/pedrohsjdev/go-kairo-payments/issues/4) | Postgres + migrations | — | **movido para a M1** |
+
+**Por que o CI subiu para segundo:** o padrão "escrevi o alvo e não executei" apareceu duas vezes no `#1`. Colocar o CI antes do `#3` e do `#6` faz com que os dois últimos tickets já nasçam com rede. CI depois seria rede chegando quando o risco já passou.
+
+**Válvula pré-aprovada:** se na quarta o `#3` estiver escorregando, o `#6` vai para seg 02/11 e a M0 fecha em 02/11. Já está autorizado — não precisa pedir, só avisar.
 
 **Fluxo por ticket:**
 ```bash
-gh issue develop 2 --base main --name feat/KAI-2-http-server --checkout
-# ... implementa ...
-gh pr create --fill --body "Closes #2"
+gh issue develop 5 --base main --name feat/KAI-5-ci --checkout
+gh pr create --fill --body "Closes #5"
 ```
 
 ---
 
-## Sprint 1 — "Checkout & Orders" · 30/09 → 10/10
+## Sprint 1 — "Checkout & Orders" · 02/11 → 13/11
 *A ser detalhada na review da Sprint 0.* Prévia do escopo: agregado `Order`, máquina de estados de pagamento, `Idempotency-Key` no `POST /checkout`, PSP fake, testes de concorrência.
 
 ---
