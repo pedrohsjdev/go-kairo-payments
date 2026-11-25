@@ -81,34 +81,29 @@ Se a explicação for rasa, eu faço pergunta de acompanhamento. Se você não s
 
 ---
 
-## Sprint 0 — "Fundação" · 3ª repactuação · 26/10 → 30/10  🟢 EM ANDAMENTO
+## M0 em modo micro-sprint · 25/11 → 20/12  🟢 EM ANDAMENTO
 
-> **Histórico honesto:** plano 1 (21–25/09) não caberia na capacidade real. Plano 2 (até 29/09) perdido por imprevisto pessoal e de trabalho. Este é o plano 3.
-> Não comprimi escopo para recuperar atraso — comprimir é como se chega ao plano 4. Em vez disso, `#4` saiu da M0 e todas as milestones andaram ~5 semanas.
-> Milestone: [M0 — Fundação](https://github.com/pedrohsjdev/go-kairo-payments/milestones) · due 30/10
+> **Acordo de 25/11/2026.** Três planos por data falharam. O problema era o dimensionamento, não a pessoa: sprint de uma semana com 5 tickets não sobrevive a uma agenda instável.
+> **Novo formato:** 1 ticket por semana, dimensionado para **3–5h**, prazo fechando **no domingo** para o fim de semana contar.
+> Previsibilidade está **suspensa como critério** até existir uma baseline — ver `README.md`.
+> Conforme a entrega acelerar, a gente comprime as datas.
 
-| Issue | Ticket | Prazo | Nota |
+| Micro-sprint | Issue | Ticket | Entrega |
 |---|---|---|---|
-| [#2](https://github.com/pedrohsjdev/go-kairo-payments/issues/2) | Servidor HTTP + config + shutdown | **seg 26/10** | ~70% feito na branch; compromisso do dev |
-| [#5](https://github.com/pedrohsjdev/go-kairo-payments/issues/5) | Testes + CI | **qua 28/10** | antecipado de propósito — ver abaixo |
-| [#3](https://github.com/pedrohsjdev/go-kairo-payments/issues/3) | Logging estruturado + request ID | **qui 29/10** | |
-| [#6](https://github.com/pedrohsjdev/go-kairo-payments/issues/6) | ADR-0001: fronteiras do monolito | **sex 30/10** | maior peso em Architecture |
-| [#7](https://github.com/pedrohsjdev/go-kairo-payments/issues/7) | Estudo | sex 30/10 | Tour of Go ✅ · falta `docs/go-notes.md` |
-| [#4](https://github.com/pedrohsjdev/go-kairo-payments/issues/4) | Postgres + migrations | — | **movido para a M1** |
+| **MS1** | [#2](https://github.com/pedrohsjdev/go-kairo-payments/issues/2) | HTTP + config + graceful shutdown | **dom 29/11** |
+| **MS2** | [#5](https://github.com/pedrohsjdev/go-kairo-payments/issues/5) | Testes + CI | dom 06/12 |
+| **MS3** | [#3](https://github.com/pedrohsjdev/go-kairo-payments/issues/3) | Logging estruturado + request ID | dom 13/12 |
+| **MS4** | [#6](https://github.com/pedrohsjdev/go-kairo-payments/issues/6) | ADR-0001: fronteiras do monolito | dom 20/12 |
+| — | [#7](https://github.com/pedrohsjdev/go-kairo-payments/issues/7) | `docs/go-notes.md` | contínuo, sem data |
+| — | [#4](https://github.com/pedrohsjdev/go-kairo-payments/issues/4) | Postgres + migrations | movido para a M1 |
 
-**Por que o CI subiu para segundo:** o padrão "escrevi o alvo e não executei" apareceu duas vezes no `#1`. Colocar o CI antes do `#3` e do `#6` faz com que os dois últimos tickets já nasçam com rede. CI depois seria rede chegando quando o risco já passou.
+**Regra de uma só:** nunca mais de um ticket aberto por vez. Se a semana render, você puxa o próximo — não pego dois de uma vez.
 
-**Válvula pré-aprovada:** se na quarta o `#3` estiver escorregando, o `#6` vai para seg 02/11 e a M0 fecha em 02/11. Já está autorizado — não precisa pedir, só avisar.
-
-**Fluxo por ticket:**
-```bash
-gh issue develop 5 --base main --name feat/KAI-5-ci --checkout
-gh pr create --fill --body "Closes #5"
-```
+**M1 em diante:** M1 fecha 31/01. M2–M7 têm data provisória e são recalibradas ao fechar a M1, com velocidade real medida em vez de estimada.
 
 ---
 
-## Sprint 1 — "Checkout & Orders" · 02/11 → 13/11
+## M1 — "Checkout & Orders" · a detalhar na review da M0
 *A ser detalhada na review da Sprint 0.* Prévia do escopo: agregado `Order`, máquina de estados de pagamento, `Idempotency-Key` no `POST /checkout`, PSP fake, testes de concorrência.
 
 ---
